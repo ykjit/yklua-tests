@@ -1,0 +1,13 @@
+FROM debian:latest
+WORKDIR /ci
+RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
+    --mount=target=/var/cache/apt,type=cache,sharing=locked \
+  rm -f /etc/apt/apt.conf.d/docker-clean && \
+  apt-get update && \
+  apt-get -y install lua5.3 shellcheck
+ARG CI_UID
+RUN useradd -m -u ${CI_UID} ci && chown ${CI_UID}:${CI_UID} .
+ARG CI_RUNNER
+ENV CI_RUNNER=${CI_RUNNER}
+COPY --chown=${CI_UID}:${CI_UID} . .
+CMD ["sh", "-x", ".buildbot.sh"]
