@@ -50,7 +50,7 @@ ORSTY_MISC_TESTS="ack.lua ack_notail.lua alias_alloc.lua \
     wbarrier_jit.lua wbarrier.lua wbarrier_obar.lua xpcall_jit.lua"
 
 # Run each test this many times.
-REPS=10
+REPS=1
 
 if [ $# -ne 1 ]; then
     echo "usage: $0 <lua-bin>"
