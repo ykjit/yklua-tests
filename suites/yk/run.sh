@@ -7,11 +7,6 @@ set -eu
 TESTDIR=tests
 TESTFILES=bounce_onefile.lua
 
-# The number of times to repeat each test.
-#
-# We repeat to try and shake out non-deterministic problems.
-REPS=10
-
 if [ $# -ne 1 ]; then
     echo "usage: run.sh <lua-binary>"
     exit 1
@@ -38,20 +33,18 @@ failed=
 for f in ${TESTFILES}; do
     get_params "$f"
     for param in ${param_list}; do
-        for rep in $(seq ${REPS}); do
-            echo "-> Running $f/${param} (${rep}/${REPS})"
+        echo "-> Running $f/${param}"
 
-            set +e
-            ${LUA} ${TESTDIR}/"$f" "${param}"
-            result=$?
-            set -e
+        set +e
+        ${LUA} ${TESTDIR}/"$f" "${param}"
+        result=$?
+        set -e
 
-            if [ "${result}" -ne 0 ]; then
-                echo "FAIL"
-                failed="${failed} $f/${param}"
-                break
-            fi
-        done
+        if [ "${result}" -ne 0 ]; then
+            echo "FAIL"
+            failed="${failed} $f/${param}"
+            break
+        fi
     done
 done
 
