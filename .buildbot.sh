@@ -16,4 +16,7 @@ cd lua-${v}
 make -j "$(nproc)"
 cd ..
 
-sh run.sh "${PWD}/lua-${v}/src/lua"
+for _ in $(seq 100); do
+  sh run.sh "${PWD}/lua-${v}/src/lua"
+  YKD_SERIALISE_COMPILATION=1 sh run.sh "${PWD}/lua-${v}/src/lua"
+done
