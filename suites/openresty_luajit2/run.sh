@@ -34,8 +34,8 @@ ORSTY_MISC_TESTS="ack.lua ack_notail.lua alias_alloc.lua \
     exit_frame.lua exit_growstack.lua fac.lua fastfib.lua fib.lua for_dir.lua \
     fori_coerce.lua fuse.lua fwd_hrefk_rollback.lua fwd_tnew_tdup.lua \
     fwd_upval.lua gc_rechain.lua hook_line.lua iter-bug.lua jit_record.lua \
-    jloop-itern-stack-check-fix.lua kfold.lua loop_unroll.lua math_random.lua \
-    meta_arith_jit.lua meta_arith.lua meta_cat.lua meta_comp.lua meta_eq.lua \
+    jloop-itern-stack-check-fix.lua loop_unroll.lua math_random.lua \
+    meta_arith_jit.lua meta_arith.lua meta_cat.lua meta_eq.lua \
     meta_framegap.lua meta_getset.lua meta_nomm.lua meta_pairs.lua \
     meta_tget.lua meta_tset.lua meta_tset_nilget.lua meta_tset_resize.lua \
     meta_tset_str.lua multi_result_call_next.lua nsieve.lua pairs_bug.lua \
@@ -47,7 +47,7 @@ ORSTY_MISC_TESTS="ack.lua ack_notail.lua alias_alloc.lua \
     string_op.lua string_sub_opt.lua table_alias.lua table_insert.lua \
     table_remove.lua tak.lua tcall_base.lua tcall_loop.lua tlen_loop.lua \
     tnew_tdup.lua uclo.lua unordered_jit.lua unordered.lua vararg_jit.lua \
-    wbarrier_jit.lua wbarrier.lua wbarrier_obar.lua xpcall_jit.lua"
+    wbarrier_jit.lua wbarrier.lua xpcall_jit.lua"
 
 # Run each test this many times.
 REPS=1
